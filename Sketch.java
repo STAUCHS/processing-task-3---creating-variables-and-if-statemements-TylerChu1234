@@ -69,10 +69,10 @@ public class Sketch extends PApplet {
     rect(castleX - towerDistance, castleY - towerDistance, towerSize - towerDistance, towerSize + towerDistance);
     rect(castleX + towerDistance + towerDistance, castleY - towerDistance, towerSize - towerDistance, towerSize + towerDistance);
 
-  
-    fill(255); // Set the text color to white
-    textSize(32); // Set the text size
-    text("Current time: " + currentTime, 50, 50); // Display the time at the top left corner
+    // Displays the time
+    fill(255); 
+    textSize(32); 
+    text("Current time: " + currentTime, 50, 50); 
     
   }
   
