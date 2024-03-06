@@ -1,36 +1,79 @@
 import processing.core.PApplet;
 
+
+/**
+A program Sketch.java that creates a castle from rectangles, ellipses, and triangles.
+@author: T. Chu
+*/
+
+
+
+
+
 public class Sketch extends PApplet {
-	
-	
-  /**
-   * Called once at the beginning of execution, put your size all in this method
-   */
+
   public void settings() {
-	// put your size call here
-    size(400, 400);
-  }
 
-  /** 
-   * Called once at the beginning of execution.  Add initial set up
-   * values here i.e background, stroke, fill etc.
-   */
-  public void setup() {
-    background(210, 255, 173);
-  }
-
-  /**
-   * Called repeatedly, anything drawn to the screen goes here
-   */
-  public void draw() {
-	  
-	// sample code, delete this stuff
-    stroke(128);
-    line(150, 25, 270, 350);  
-
-    stroke(255);
-    line(50, 125, 70, 50);  
+    size(1920,1080);
   }
   
-  // define other methods down here.
+  
+  
+ 
+  public void setup() {
+
+  
+    background(82, 148, 255);
+
+    castleX = random(0,width);
+    castleY = random(0,height);
+
+    currentTime = hour() + ":" + minute() + ":" + second();
+
+  }
+
+  
+  float castleX;
+  float castleY;
+  
+
+  float towerSize = 100;
+
+  float towerDistance = towerSize / 2;
+
+  String currentTime;
+
+  
+
+  public void draw() {
+
+  
+    // Change castle color based on its position
+    if (castleX > width /2 ) {
+      fill(255, 0, 0); // Red castle if it's on the right half
+    } else {
+      fill(0, 0, 255); // Blue castle if it's on the left half
+    }
+  
+    // Main Castle
+    rect(castleX, castleY, towerSize, towerSize);
+  
+    // Change tower color based on its position
+    if (castleX - towerDistance > width / 2) {
+      fill(255, 0, 0); // Red tower if it's on the right half
+    } else {
+      fill(0, 0, 255); // Blue tower if it's on the left half
+    }
+  
+    // Towers
+    rect(castleX - towerDistance, castleY - towerDistance, towerSize - towerDistance, towerSize + towerDistance);
+    rect(castleX + towerDistance + towerDistance, castleY - towerDistance, towerSize - towerDistance, towerSize + towerDistance);
+
+  
+    fill(255); // Set the text color to white
+    textSize(32); // Set the text size
+    text("Current time: " + currentTime, 50, 50); // Display the time at the top left corner
+    
+  }
+  
 }
