@@ -2,7 +2,7 @@ import processing.core.PApplet;
 
 
 /**
-A program Sketch.java that creates a castle from rectangles, ellipses, and triangles.
+A program Sketch.java that spawns a castle in a random location.  If it is on the left side, the castle is blue.  If it ison the right side, the castle is red.
 @author: T. Chu
 */
 
@@ -32,7 +32,7 @@ public class Sketch extends PApplet {
 
   }
 
-  
+  // Setting sizes and variables
   float castleX;
   float castleY;
   
@@ -49,7 +49,7 @@ public class Sketch extends PApplet {
 
   
     // Change castle color based on its position
-    if (castleX > width /2 ) {
+    if (castleX > width / 2 || castleX == width / 2 ) {
       fill(255, 0, 0); // Red castle if it's on the right half
     } else {
       fill(0, 0, 255); // Blue castle if it's on the left half
@@ -59,7 +59,7 @@ public class Sketch extends PApplet {
     rect(castleX, castleY, towerSize, towerSize);
   
     // Change tower color based on its position
-    if (castleX - towerDistance > width / 2) {
+    if (castleX - towerDistance > width / 2 || castleX == width / 2 ) {
       fill(255, 0, 0); // Red tower if it's on the right half
     } else {
       fill(0, 0, 255); // Blue tower if it's on the left half
