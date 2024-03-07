@@ -37,7 +37,7 @@ public class Sketch extends PApplet {
   float castleY;
   
 
-  float towerSize = 100;
+  float towerSize = random(10,100);
 
   float towerDistance = towerSize / 2;
 
